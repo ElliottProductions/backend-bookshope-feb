@@ -11,7 +11,10 @@ describe('backend-express-template routes', () => {
     const res = await request(app).get('/authors');
     expect(res.body[0]).toEqual({ 'id':'1', 'name':'J. R. R. Tolkien' });
   });
-
+  it('/authors/:id should return a single authors', async () => {
+    const res = await request(app).get('/authors/1');
+    expect(res.body.name).toEqual('J. R. R. Tolkien');
+  });
   afterAll(() => {
     pool.end();
   });

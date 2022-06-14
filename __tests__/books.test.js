@@ -15,6 +15,10 @@ describe('backend-express-template routes', () => {
     const res = await request(app).get('/books/1');
     expect(res.body.title).toEqual('Lord of the Things');
   });
+  it('POST /books should create a new book', async () => {
+    const res = await request(app).post('/books').send({ title: '1001: An Arabian Odyssey' });
+    expect(res.body.title).toEqual('1001: An Arabian Odyssey');
+  });
   afterAll(() => {
     pool.end();
   });
