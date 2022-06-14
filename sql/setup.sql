@@ -10,4 +10,14 @@ CREATE TABLE books (
 );
 
 INSERT INTO books (title, released) VALUES
-('Lord of the Things', 1922)
+('Lord of the Things', 1922);
+
+CREATE TABLE authors (
+  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  name VARCHAR,
+  dob VARCHAR,
+  pob VARCHAR
+);
+
+INSERT INTO authors (name, dob, pob) VALUES
+('J. R. R. Tolkien', 'Sun Jan 03 1892', 'Bloemfontein, Orange Free State');

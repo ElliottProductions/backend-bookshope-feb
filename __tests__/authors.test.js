@@ -7,10 +7,11 @@ describe('backend-express-template routes', () => {
   beforeEach(() => {
     return setup(pool);
   });
-  it('/books should return a list of books', async () => {
-    const res = await request(app).get('/books');
-    expect(res.body[0]).toEqual({ 'id':'1', 'title':'Lord of the Things', 'released':1922 });
+  it('/authors should return a list of authors', async () => {
+    const res = await request(app).get('/authors');
+    expect(res.body[0]).toEqual({ 'id':'1', 'name':'J. R. R. Tolkien' });
   });
+
   afterAll(() => {
     pool.end();
   });
