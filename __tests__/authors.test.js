@@ -15,6 +15,10 @@ describe('backend-express-template routes', () => {
     const res = await request(app).get('/authors/1');
     expect(res.body.name).toEqual('J. R. R. Tolkien');
   });
+  it('POST /authors should create a new author', async () => {
+    const res = await request(app).post('/authors').send({ name: 'George Louie Borges' });
+    expect(res.body.name).toEqual('George Louie Borges');
+  });
   afterAll(() => {
     pool.end();
   });
