@@ -13,7 +13,7 @@ describe('backend-express-template routes', () => {
   });
   it('/books/:id should return a single book', async () => {
     const res = await request(app).get('/books/1');
-    expect(res.body).toEqual({ 'id':'1', 'title':'Lord of the Things', 'released':1922 });
+    expect(res.body.title).toEqual('Lord of the Things');
   });
   afterAll(() => {
     pool.end();
