@@ -6,7 +6,7 @@ DROP TABLE IF EXISTS books;
 CREATE TABLE books (
   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   title VARCHAR,
-  released DATE
+  released INT
 );
 
 INSERT INTO books (title, released) VALUES

@@ -7,8 +7,9 @@ describe('backend-express-template routes', () => {
   beforeEach(() => {
     return setup(pool);
   });
-  it('example test - delete me!', () => {
-    expect(1).toEqual(1);
+  it('/books should return a list of books', async () => {
+    const res = await request(app).get('/books');
+    expect(res.body[0]).toEqual({ 'id':'1', 'title':'Lord of the Things', 'released':1922 });
   });
   afterAll(() => {
     pool.end();
